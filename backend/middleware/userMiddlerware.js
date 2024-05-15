@@ -1,4 +1,4 @@
-const { JWT_SECRET_KEY } = require("../config");
+const { JWT_SECRET_KEY } = require("../cofigs/config");
 const { User } = require("../db/schema");
 const { zodUser,UpdatedUser } = require("../zod/zod");
 const jwt = require("jsonwebtoken")

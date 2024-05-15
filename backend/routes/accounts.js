@@ -41,8 +41,9 @@ router.post("/transfer",jwtAuth,async(req,res)=>{
             }
         )
     }else{
+        const userAuth = await Account.findOne({userId:toId})
+
         const fundtransfer = await transferFund(toId,userID,amount)
-        console.log(transferFund)
     }
 
 })

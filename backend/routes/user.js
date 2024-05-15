@@ -2,7 +2,7 @@ const {Router} =  require("express")
 const jwt = require("jsonwebtoken");
 const { Usermiddleware, jwtAuth, Updateduser } = require("../middleware/userMiddlerware");
 const { User, Account } = require("../db/schema");
-const { JWT_SECRET_KEY } = require("../config");
+const { JWT_SECRET_KEY } = require("../cofigs/config");
 const { initialiseFund } = require("../transactions/fundInitializer");
 const router = Router();
 
