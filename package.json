@@ -1,0 +1,11 @@
+{
+  "name": "paytm-clone",
+  "version": "1.0.0",
+  "description": "{     \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NjQzYWU3NzljMjBiZjhhMzg4NWI3OWMiLCJpYXQiOjE3MTU3MTE2MDh9.HfuwCf7U69qrXuZU4b5HHk3ae_A9zlzDLyAEJbaVR_E\",     \"userID\": \"6643ae779c20bf8a3885b79c\" }",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
