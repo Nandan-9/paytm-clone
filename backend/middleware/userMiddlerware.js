@@ -50,8 +50,7 @@ const transferAuth = async(req, res, next) => {
     const{to,amount} = req.body
 }
 
-
-
+appj
 
 
 module.exports = {
