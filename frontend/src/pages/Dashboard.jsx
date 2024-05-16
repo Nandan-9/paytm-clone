@@ -1,10 +1,13 @@
-export default function Dashboard(){
-    return(
-        <>
-        <h1 className="text-3xl bg-slate-100 font-bold underline">
-      Hello world!
-        1</h1>
+import { Appbar } from "../components/Appbar"
+import { Balance } from "../components/Balance"
+import { Users } from "../components/Users"
 
-        </>
-    )
+export const Dashboard = () => {
+    return <div>
+        <Appbar />
+        <div className="m-8">
+            <Balance value={"10,000"} />
+            <Users />
+        </div>
+    </div>
 }
