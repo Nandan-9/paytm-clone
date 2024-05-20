@@ -1,5 +1,6 @@
 const mongoose  = require('mongoose');
 const { number } = require('zod');
+const { use } = require('../routes/user');
 
 mongoose.connect("mongodb+srv://devnandan:YPExdTmhfRC1j0qg@cluster0.dd2pa02.mongodb.net/paytm-clone")
 
@@ -38,12 +39,21 @@ const userSchema = new mongoose.Schema({
         unique : true
     },
     accountNumber : {
-        
+        type : number,
+        required : true,
+        minLenght : 12,
+        maxLenght : 12,
+        unique : true
     }
 
 
 })
 const accountSchema = new mongoose.Schema({
+    accountNumber : {
+        type : number,
+        ref : 'user',
+        required : true,
+    },
     userId: {
         type: mongoose.Schema.Types.ObjectId, // Reference to User model
         ref: 'User',
