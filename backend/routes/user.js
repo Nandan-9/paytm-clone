@@ -26,10 +26,13 @@ router.post("/signup/",Usermiddleware,async(req,res)=>{
             firstName : firstName,
             lastName : lastName,
             userName : userName,
+            phoneNumber : phoneNumber,
+            accountNumber : accountNumber,
             password : password
         })
         const userId = user._id;
         const fund = await Account.create({
+            accountNumber,
             userId,
             balance: Math.random()*(100000-1)+ 1
         })
