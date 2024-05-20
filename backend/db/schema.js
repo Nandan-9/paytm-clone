@@ -1,4 +1,5 @@
 const mongoose  = require('mongoose');
+const { number } = require('zod');
 
 mongoose.connect("mongodb+srv://devnandan:YPExdTmhfRC1j0qg@cluster0.dd2pa02.mongodb.net/paytm-clone")
 
@@ -28,7 +29,18 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true,
         minLenght:6
+    },
+    mobileNumber : {
+        type : number,
+        required : true,
+        minLenght: 10,
+        maxLenght:10,
+        unique : true
+    },
+    accountNumber : {
+        
     }
+
 
 })
 const accountSchema = new mongoose.Schema({
