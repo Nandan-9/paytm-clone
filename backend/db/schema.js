@@ -2,7 +2,7 @@ const mongoose  = require('mongoose');
 const { number } = require('zod');
 const { use } = require('../routes/user');
 
-mongoose.connect("mongodb+srv://devnandan:YPExdTmhfRC1j0qg@cluster0.dd2pa02.mongodb.net/paytm-clone")
+mongoose.connect("mongodb://localhost:27017/paytm-clone")
 
 const userSchema = new mongoose.Schema({
     userName : {
@@ -32,14 +32,14 @@ const userSchema = new mongoose.Schema({
         minLenght:6
     },
     mobileNumber : {
-        type : number,
+        type : Number,
         required : true,
         minLenght: 10,
         maxLenght:10,
         unique : true
     },
     accountNumber : {
-        type : number,
+        type : Number,
         required : true,
         minLenght : 12,
         maxLenght : 12,
@@ -50,8 +50,8 @@ const userSchema = new mongoose.Schema({
 })
 const accountSchema = new mongoose.Schema({
     accountNumber : {
-        type : number,
-        ref : 'user',
+        type : Number,
+        ref : 'User',
         required : true,
     },
     userId: {

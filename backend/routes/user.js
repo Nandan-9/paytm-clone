@@ -14,10 +14,10 @@ router.get("/",(req, res)=>{
 })
 
 router.post("/signup/",Usermiddleware,async(req,res)=>{
-    const {firstName,lastName,password,userName,phoneNumber,accountNumber} = req.body;
+    const {firstName,lastName,password,userName,mobileNumber,accountNumber} = req.body;
     
     const dbResponse = await User.findOne({
-        phoneNumber: phoneNumber
+        mobileNumber :  mobileNumber
     })
     console.log(dbResponse);
 
@@ -26,7 +26,7 @@ router.post("/signup/",Usermiddleware,async(req,res)=>{
             firstName : firstName,
             lastName : lastName,
             userName : userName,
-            phoneNumber : phoneNumber,
+            mobileNumber : mobileNumber,
             accountNumber : accountNumber,
             password : password
         })

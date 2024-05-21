@@ -2,7 +2,6 @@ const {Router} =  require("express")
 const jwt = require("jsonwebtoken");
 const { jwtAuth } = require("../middleware/userMiddlerware");
 const { Account } = require("../db/schema");
-const { transferFund } = require("../transactions/fundTransfer");
 const mongoose  = require('mongoose');
 
 const router = Router();
