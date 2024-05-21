@@ -6,3 +6,4 @@
 
     just doing it for commit noting more 
     had few akward eye contacts today may be its just coincidence
+    i don't where this is going,
