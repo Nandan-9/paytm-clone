@@ -6,4 +6,4 @@
 
     just doing it for commit noting more 
     had few akward eye contacts today may be its just coincidence
-    i don't where this is going,
+    i don't where this is going,but i am sure of one thing if i didn't talk to her till the and ask her on the trainn she would definintely get scared 
