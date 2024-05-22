@@ -32,7 +32,7 @@ router.post("/transfer", jwtAuth, async (req, res) => {
     session.startTransaction();
     const { amount, to,mobileNumber } = req.body;
 
-    const account = await Account.findOne({ mobileNumber: mobileNumber }).session(session);
+    const account = await Account.findOne({ userId: req.userID }).session(session);
     console.log(account);
 
     if (!account || account.balance < amount) {
@@ -42,8 +42,9 @@ router.post("/transfer", jwtAuth, async (req, res) => {
         });
     }
 
-    const toAccount = await Account.findOne({ userId: to }).session(session);
+    const toAccount = await Account.findOne({ mobileNumber: mobileNumber }).session(session);
     console.log(toAccount);
+    
     if (!toAccount) {
         await session.abortTransaction();
         return res.status(400).json({
