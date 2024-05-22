@@ -30,7 +30,7 @@ router.post("/transfer", jwtAuth, async (req, res) => {
     const session = await mongoose.startSession();
 
     session.startTransaction();
-    const { amount, to } = req.body;
+    const { amount, to,mobileNumber } = req.body;
     console.log(amount, to);
 
     const account = await Account.findOne({ userId: req.userID }).session(session);
