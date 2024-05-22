@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { jwtAuth } = require("../middleware/userMiddlerware");
 const { Account } = require("../db/schema");
 const mongoose  = require('mongoose');
+const { number } = require("zod");
 
 const router = Router();
 
@@ -27,8 +28,11 @@ router.get("/balance", jwtAuth,async(req, res)=>{
 })
 
 router.post("/transfer", jwtAuth, async (req, res) => {
-    const session = await mongoose.startSession();
+    // the userID is used to authenticate the sender and
+    // the mobileNumber is used to identify sender and make paymet
 
+    const session = await mongoose.startSession();
+    
     session.startTransaction();
     const { amount, to,mobileNumber } = req.body;
 
@@ -41,7 +45,7 @@ router.post("/transfer", jwtAuth, async (req, res) => {
             message: "Insufficient balance"
         });
     }
-
+    // authenticating wheather the account exists or not using mNum 
     const toAccount = await Account.findOne({ mobileNumber: mobileNumber }).session(session);
     console.log(toAccount);
 
@@ -53,6 +57,7 @@ router.post("/transfer", jwtAuth, async (req, res) => {
     }
 
     await Account.updateOne({ userId: req.userId }, { $inc: { balance: -amount } }).session(session);
+    // updated the userID field with mobile number 
     await Account.updateOne({ mobileNumber: mobileNumber }, { $inc: { balance: amount } }).session(session);
 
     await session.commitTransaction();
