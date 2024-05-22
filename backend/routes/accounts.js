@@ -32,9 +32,9 @@ router.post("/transfer", jwtAuth, async (req, res) => {
     // the mobileNumber is used to identify sender and make paymet
 
     const session = await mongoose.startSession();
-    
+
     session.startTransaction();
-    const { amount, to,mobileNumber } = req.body;
+    const { amount,mobileNumber } = req.body;
 
     const account = await Account.findOne({ userId: req.userID }).session(session);
     console.log(account);
